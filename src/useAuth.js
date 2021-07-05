@@ -4,6 +4,7 @@ import axios from 'axios';
 // Creating a custom react hook
 
 const useAuth = (code) => {
+    // Setting state of various tokens
     const [accessToken, setAccessToken] = useState();
     const [refreshToken, setRefreshToken] = useState();
     const [expiresIn, setExpiresIn] = useState();
@@ -13,7 +14,7 @@ const useAuth = (code) => {
             code
         }).then(res => {
             console.log(res.data);
-            
+
             setAccessToken(res.data.accessToken);
             setRefreshToken(res.data.refreshToken);
             setExpiresIn(res.data.expiresIn);
@@ -33,7 +34,7 @@ const useAuth = (code) => {
     }, [refreshToken, expiresIn])
 
     return accessToken;
-    
+
 
 }
 
