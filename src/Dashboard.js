@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import useAuth from './useAuth';
 
 const Dashboard = ({ code }) => {
     console.log(code);
+    const accessToken = useAuth(code);
     return (
         <div>
             <h1>Welcome, Roman!</h1>
