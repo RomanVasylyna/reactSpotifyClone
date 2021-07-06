@@ -8,7 +8,8 @@ const useAuth = (code) => {
     const [accessToken, setAccessToken] = useState();
     const [refreshToken, setRefreshToken] = useState();
     const [expiresIn, setExpiresIn] = useState();
-
+    
+    // First useEffect that is triggered by changes in the code
     useEffect(() => {
         axios.post('http://localhost:3001/login', {
             code
@@ -21,7 +22,7 @@ const useAuth = (code) => {
         }).catch(err => {
             console.log(err);
         })
-    }, [code])
+    }, [code]) //trigger of useEffect
 
     useEffect(() => {
         axios.post('http://localhost:3001/refresh', {
